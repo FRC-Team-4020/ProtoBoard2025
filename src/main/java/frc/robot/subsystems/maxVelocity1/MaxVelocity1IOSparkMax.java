@@ -39,6 +39,7 @@ public class MaxVelocity1IOSparkMax implements MaxVelocity1IO {
     inputs.velocityRPM = encoder.getVelocity() / GEAR_RATIO;
     inputs.appliedVolts = leader.getAppliedOutput() * leader.getBusVoltage();
     inputs.currentAmps = leader.getOutputCurrent();
+    inputs.isBrake = leader.getIdleMode();
   }
 
   @Override
@@ -58,12 +59,8 @@ public class MaxVelocity1IOSparkMax implements MaxVelocity1IO {
   }
 
   @Override
-  public void brakeMode(boolean isBrake) {
-    if (isBrake) {
-      leader.setIdleMode(IdleMode.kBrake);
-    } else {
-      leader.setIdleMode(IdleMode.kCoast);
-    }
+  public void brakeMode(IdleMode isBrake) {
+    leader.setIdleMode(isBrake);
   }
 
   @Override

@@ -1,5 +1,6 @@
 package frc.robot.subsystems.maxVelocity1;
 
+import com.revrobotics.CANSparkBase.IdleMode;
 import edu.wpi.first.math.controller.SimpleMotorFeedforward;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.RobotBase;
@@ -27,7 +28,8 @@ public class MaxVelocity1 extends SubsystemBase {
   public LoggedDashboardBoolean isvolts =
       new LoggedDashboardBoolean("Run RPM             Run Volts", true);
 
-  public LoggedDashboardBoolean isBrake = new LoggedDashboardBoolean("Brake Mode", true);
+  public LoggedDashboardBoolean isBrake = new LoggedDashboardBoolean("Brake Mode", false);
+  boolean needsUpdate = false;
 
   /** Creates a new MaxVelocity1. */
   public MaxVelocity1(MaxVelocity1IO io) {
@@ -56,6 +58,7 @@ public class MaxVelocity1 extends SubsystemBase {
 
   @Override
   public void periodic() {
+
     io.updateInputs(inputs);
     Logger.processInputs("MaxVelocity1", inputs);
 
@@ -67,7 +70,10 @@ public class MaxVelocity1 extends SubsystemBase {
       runVelocity(motorRPM);
     }
 
-    io.brakeMode(isBrake.get());
+    if (!(needsUpdate == isBrake.get())) {
+      brakeMode(isBrake.get() ? IdleMode.kBrake : IdleMode.kCoast);
+      needsUpdate = !needsUpdate;
+    }
   }
 
   /** Run open loop at the specified voltage. */
@@ -88,8 +94,8 @@ public class MaxVelocity1 extends SubsystemBase {
     io.stop();
   }
 
-  public void brakeMode() {
-    io.brakeMode(false);
+  public void brakeMode(IdleMode isBrake) {
+    io.brakeMode(isBrake);
   }
 
   /** Returns the current velocity in RPM. */

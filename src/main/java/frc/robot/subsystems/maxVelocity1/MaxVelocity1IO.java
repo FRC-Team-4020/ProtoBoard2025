@@ -13,6 +13,7 @@
 
 package frc.robot.subsystems.maxVelocity1;
 
+import com.revrobotics.CANSparkBase.IdleMode;
 import org.littletonrobotics.junction.AutoLog;
 
 public interface MaxVelocity1IO {
@@ -22,7 +23,7 @@ public interface MaxVelocity1IO {
     public double velocityRPM = 0.0;
     public double appliedVolts = 0.0;
     public double currentAmps = 0.0;
-    public boolean isBrake = true;
+    public IdleMode isBrake = IdleMode.kCoast;
   }
 
   /** Updates the set of loggable inputs. */
@@ -41,5 +42,5 @@ public interface MaxVelocity1IO {
   public default void configurePID(double kP, double kI, double kD) {}
 
   /** Set Brake mode */
-  public default void brakeMode(boolean isBrake) {}
+  public default void brakeMode(IdleMode isBrake) {}
 }
