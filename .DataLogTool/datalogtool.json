@@ -1,0 +1,9 @@
+{
+  "download": {
+    "deleteAfter": false,
+    "localDir": "C:\\Users\\CyberTribe\\Downloads",
+    "remoteDir": "/u/logs",
+    "serverTeam": "10.40.20.1",
+    "visible": false
+  }
+}

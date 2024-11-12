@@ -1,0 +1,180 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 1.41,
+      "y": 4.12
+    },
+    "rotation": 0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "smartIntake"
+                }
+              },
+              {
+                "type": "sequential",
+                "data": {
+                  "commands": [
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "aimAtSpeaker"
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "shoot"
+                      }
+                    },
+                    {
+                      "type": "parallel",
+                      "data": {
+                        "commands": [
+                          {
+                            "type": "named",
+                            "data": {
+                              "name": "lowerArm"
+                            }
+                          },
+                          {
+                            "type": "named",
+                            "data": {
+                              "name": "stopShooter"
+                            }
+                          },
+                          {
+                            "type": "named",
+                            "data": {
+                              "name": "runConvey"
+                            }
+                          },
+                          {
+                            "type": "path",
+                            "data": {
+                              "pathName": "Stage.C2"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "path",
+                      "data": {
+                        "pathName": "C2.Sshoot"
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "turnToSpeaker"
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "shoot"
+                      }
+                    },
+                    {
+                      "type": "parallel",
+                      "data": {
+                        "commands": [
+                          {
+                            "type": "named",
+                            "data": {
+                              "name": "lowerArm"
+                            }
+                          },
+                          {
+                            "type": "named",
+                            "data": {
+                              "name": "stopShooter"
+                            }
+                          },
+                          {
+                            "type": "named",
+                            "data": {
+                              "name": "runConvey"
+                            }
+                          },
+                          {
+                            "type": "path",
+                            "data": {
+                              "pathName": "Sshoot.C1"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "path",
+                      "data": {
+                        "pathName": "C1.Sshoot"
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "turnToSpeaker"
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "shoot"
+                      }
+                    },
+                    {
+                      "type": "parallel",
+                      "data": {
+                        "commands": [
+                          {
+                            "type": "named",
+                            "data": {
+                              "name": "lowerArm"
+                            }
+                          },
+                          {
+                            "type": "named",
+                            "data": {
+                              "name": "stopShooter"
+                            }
+                          },
+                          {
+                            "type": "named",
+                            "data": {
+                              "name": "stopIntake"
+                            }
+                          },
+                          {
+                            "type": "named",
+                            "data": {
+                              "name": "stopConvey"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "folder": null,
+  "choreoAuto": false
+}
