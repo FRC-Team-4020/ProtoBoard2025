@@ -22,6 +22,7 @@ public interface MaxVelocity1IO {
     public double velocityRPM = 0.0;
     public double appliedVolts = 0.0;
     public double currentAmps = 0.0;
+    public boolean isBrake = true;
   }
 
   /** Updates the set of loggable inputs. */
@@ -38,4 +39,7 @@ public interface MaxVelocity1IO {
 
   /** Set velocity PID constants. */
   public default void configurePID(double kP, double kI, double kD) {}
+
+  /** Set Brake mode */
+  public default void brakeMode(boolean isBrake) {}
 }

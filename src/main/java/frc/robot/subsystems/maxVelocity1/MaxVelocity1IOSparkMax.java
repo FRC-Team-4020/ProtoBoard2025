@@ -1,6 +1,7 @@
 package frc.robot.subsystems.maxVelocity1;
 
 import com.revrobotics.CANSparkBase.ControlType;
+import com.revrobotics.CANSparkBase.IdleMode;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
@@ -54,6 +55,15 @@ public class MaxVelocity1IOSparkMax implements MaxVelocity1IO {
   @Override
   public void stop() {
     leader.stopMotor();
+  }
+
+  @Override
+  public void brakeMode(boolean isBrake) {
+    if (isBrake) {
+      leader.setIdleMode(IdleMode.kBrake);
+    } else {
+      leader.setIdleMode(IdleMode.kCoast);
+    }
   }
 
   @Override

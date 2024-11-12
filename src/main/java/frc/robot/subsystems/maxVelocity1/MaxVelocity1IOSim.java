@@ -53,4 +53,8 @@ public class MaxVelocity1IOSim implements MaxVelocity1IO {
   public void configurePID(double kP, double kI, double kD) {
     pid.setPID(kP, kI, kD);
   }
+
+  public void brakeMode(boolean isBrake) {
+    this.brakeMode(isBrake);
+  }
 }

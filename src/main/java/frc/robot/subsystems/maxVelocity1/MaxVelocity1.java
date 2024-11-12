@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import org.littletonrobotics.junction.AutoLogOutput;
 import org.littletonrobotics.junction.Logger;
+import org.littletonrobotics.junction.networktables.LoggedDashboardBoolean;
 import org.littletonrobotics.junction.networktables.LoggedDashboardNumber;
 
 public class MaxVelocity1 extends SubsystemBase {
@@ -18,10 +19,15 @@ public class MaxVelocity1 extends SubsystemBase {
   private final DigitalInput maxVelocity1NoteSensor = new DigitalInput(9);
 
   public LoggedDashboardNumber maxVelocity1VelocityInput =
-      new LoggedDashboardNumber("MaxVelocity1 RPM", 900);
+      new LoggedDashboardNumber("MaxVelocity1 RPM", 0);
 
   public LoggedDashboardNumber elasticVolts =
-      new LoggedDashboardNumber("MaxVelocity1ElasticVolts", 12);
+      new LoggedDashboardNumber("MaxVelocity1ElasticVolts", 0);
+
+  public LoggedDashboardBoolean isvolts =
+      new LoggedDashboardBoolean("Run RPM             Run Volts", true);
+
+  public LoggedDashboardBoolean isBrake = new LoggedDashboardBoolean("Brake Mode", true);
 
   /** Creates a new MaxVelocity1. */
   public MaxVelocity1(MaxVelocity1IO io) {
@@ -53,8 +59,15 @@ public class MaxVelocity1 extends SubsystemBase {
     io.updateInputs(inputs);
     Logger.processInputs("MaxVelocity1", inputs);
 
-    double motorVoltage = elasticVolts.get();
-    runVolts(motorVoltage);
+    if (isvolts.get()) {
+      double motorVoltage = elasticVolts.get();
+      runVolts(motorVoltage);
+    } else {
+      double motorRPM = maxVelocity1VelocityInput.get();
+      runVelocity(motorRPM);
+    }
+
+    io.brakeMode(isBrake.get());
   }
 
   /** Run open loop at the specified voltage. */
@@ -73,6 +86,10 @@ public class MaxVelocity1 extends SubsystemBase {
   /** Stops the convey. */
   public void stop() {
     io.stop();
+  }
+
+  public void brakeMode() {
+    io.brakeMode(false);
   }
 
   /** Returns the current velocity in RPM. */
