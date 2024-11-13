@@ -29,7 +29,21 @@ public class MaxVelocity1 extends SubsystemBase {
       new LoggedDashboardBoolean("Run RPM             Run Volts", true);
 
   public LoggedDashboardBoolean isBrake = new LoggedDashboardBoolean("Brake Mode", false);
-  boolean needsUpdate = false;
+  boolean brakeNeedsUpdate = false;
+
+  public LoggedDashboardNumber appliedVoltage = new LoggedDashboardNumber("Applied Volts", 0);
+
+  public LoggedDashboardNumber velocityRPM =
+      new LoggedDashboardNumber("Current MaxVelocity1 RPM", 0);
+
+  public LoggedDashboardNumber setKP = new LoggedDashboardNumber("Set kP", 0);
+  boolean kPNeedsUpdate = false;
+
+  public LoggedDashboardNumber setKI = new LoggedDashboardNumber("Set kI", 0);
+  boolean kINeedsUpdate = false;
+
+  public LoggedDashboardNumber setKD = new LoggedDashboardNumber("Set kD", 0);
+  boolean kDNeedsUpdate = false;
 
   /** Creates a new MaxVelocity1. */
   public MaxVelocity1(MaxVelocity1IO io) {
@@ -70,10 +84,16 @@ public class MaxVelocity1 extends SubsystemBase {
       runVelocity(motorRPM);
     }
 
-    if (!(needsUpdate == isBrake.get())) {
+    if (!(brakeNeedsUpdate == isBrake.get())) {
       brakeMode(isBrake.get() ? IdleMode.kBrake : IdleMode.kCoast);
-      needsUpdate = !needsUpdate;
+      brakeNeedsUpdate = !brakeNeedsUpdate;
     }
+
+    appliedVoltage.set(inputs.appliedVolts);
+
+    velocityRPM.set(Math.round(getVelocityRPM()));
+
+    io.configurePID(setKP.get(), setKI.get(), setKD.get());
   }
 
   /** Run open loop at the specified voltage. */

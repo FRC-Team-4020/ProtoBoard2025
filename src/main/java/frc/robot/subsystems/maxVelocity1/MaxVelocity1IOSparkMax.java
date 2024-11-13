@@ -35,8 +35,8 @@ public class MaxVelocity1IOSparkMax implements MaxVelocity1IO {
 
   @Override
   public void updateInputs(MaxVelocity1IOInputs inputs) {
-    inputs.positionRot = encoder.getPosition() / GEAR_RATIO;
-    inputs.velocityRPM = encoder.getVelocity() / GEAR_RATIO;
+    inputs.positionRot = encoder.getPosition();
+    inputs.velocityRPM = encoder.getVelocity();
     inputs.appliedVolts = leader.getAppliedOutput() * leader.getBusVoltage();
     inputs.currentAmps = leader.getOutputCurrent();
     inputs.isBrake = leader.getIdleMode();
@@ -49,8 +49,7 @@ public class MaxVelocity1IOSparkMax implements MaxVelocity1IO {
 
   @Override
   public void setVelocity(double velocityRPM, double ffVolts) {
-    pid.setReference(
-        velocityRPM * GEAR_RATIO, ControlType.kVelocity, 0, ffVolts, ArbFFUnits.kVoltage);
+    pid.setReference(velocityRPM, ControlType.kVelocity, 0, ffVolts, ArbFFUnits.kVoltage);
   }
 
   @Override

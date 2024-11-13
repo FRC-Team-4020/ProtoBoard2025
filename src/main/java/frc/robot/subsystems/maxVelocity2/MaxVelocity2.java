@@ -13,10 +13,10 @@ public class MaxVelocity2 extends SubsystemBase {
   private final SimpleMotorFeedforward ffModel;
 
   public LoggedDashboardNumber maxVelocity2VelocityInput =
-      new LoggedDashboardNumber("MaxVelocity2 RPM", 900);
+      new LoggedDashboardNumber("MaxVelocity2 RPM", 0);
 
   public LoggedDashboardNumber elasticVolts =
-      new LoggedDashboardNumber("MaxVelocity2ElasticVolts", 12);
+      new LoggedDashboardNumber("MaxVelocity2ElasticVolts", 0);
 
   /** Creates a new MaxVelocity2. */
   public MaxVelocity2(MaxVelocity2IO io) {
