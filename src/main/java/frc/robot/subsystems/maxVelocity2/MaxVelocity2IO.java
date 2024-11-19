@@ -13,15 +13,17 @@
 
 package frc.robot.subsystems.maxVelocity2;
 
+import com.revrobotics.CANSparkBase.IdleMode;
 import org.littletonrobotics.junction.AutoLog;
 
 public interface MaxVelocity2IO {
   @AutoLog
   public static class MaxVelocity2IOInputs {
     public double positionRot = 0.0;
-    public double velocityRPM = 0.0;
+    public double velocityRPM2 = 0.0;
     public double appliedVolts = 0.0;
     public double currentAmps = 0.0;
+    public IdleMode isBrake2 = IdleMode.kCoast;
   }
 
   /** Updates the set of loggable inputs. */
@@ -31,11 +33,14 @@ public interface MaxVelocity2IO {
   public default void setVoltage(double volts) {}
 
   /** Run closed loop at the specified velocity. */
-  public default void setVelocity(double velocityRPM, double ffVolts) {}
+  public default void setVelocity(double velocityRPM2, double ffVolts) {}
 
   /** Stop in open loop. */
   public default void stop() {}
 
   /** Set velocity PID constants. */
   public default void configurePID(double kP, double kI, double kD) {}
+
+  /** Set Brake mode */
+  public default void brakeMode(IdleMode isBrake2) {}
 }

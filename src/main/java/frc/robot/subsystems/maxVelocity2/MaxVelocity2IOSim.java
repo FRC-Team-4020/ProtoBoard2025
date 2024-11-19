@@ -25,7 +25,7 @@ public class MaxVelocity2IOSim implements MaxVelocity2IO {
     sim.update(0.02);
 
     inputs.positionRot = 0.0;
-    inputs.velocityRPM = sim.getAngularVelocityRPM();
+    inputs.velocityRPM2 = sim.getAngularVelocityRPM();
     inputs.appliedVolts = appliedVolts;
     inputs.currentAmps = sim.getCurrentDrawAmps();
   }
@@ -38,9 +38,9 @@ public class MaxVelocity2IOSim implements MaxVelocity2IO {
   }
 
   @Override
-  public void setVelocity(double velocityRPM, double ffVolts) {
+  public void setVelocity(double velocityRPM2, double ffVolts) {
     closedLoop = true;
-    pid.setSetpoint(velocityRPM);
+    pid.setSetpoint(velocityRPM2);
     this.ffVolts = ffVolts;
   }
 
@@ -52,5 +52,9 @@ public class MaxVelocity2IOSim implements MaxVelocity2IO {
   @Override
   public void configurePID(double kP, double kI, double kD) {
     pid.setPID(kP, kI, kD);
+  }
+
+  public void brakeMode(boolean isBrake2) {
+    this.brakeMode(isBrake2);
   }
 }

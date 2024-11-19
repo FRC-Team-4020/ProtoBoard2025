@@ -1,6 +1,7 @@
 package frc.robot.subsystems.maxVelocity2;
 
 import com.revrobotics.CANSparkBase.ControlType;
+import com.revrobotics.CANSparkBase.IdleMode;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
@@ -8,9 +9,7 @@ import com.revrobotics.SparkPIDController;
 import com.revrobotics.SparkPIDController.ArbFFUnits;
 
 public class MaxVelocity2IOSparkMax implements MaxVelocity2IO {
-  private static final double GEAR_RATIO = 4.0; // this is the gear reduction (driven/driving)
-
-  private final CANSparkMax leader = new CANSparkMax(2, MotorType.kBrushless);
+  private final CANSparkMax leader = new CANSparkMax(1, MotorType.kBrushless);
   private final RelativeEncoder encoder = leader.getEncoder();
   private final SparkPIDController pid = leader.getPIDController();
 
@@ -34,10 +33,11 @@ public class MaxVelocity2IOSparkMax implements MaxVelocity2IO {
 
   @Override
   public void updateInputs(MaxVelocity2IOInputs inputs) {
-    inputs.positionRot = encoder.getPosition() / GEAR_RATIO;
-    inputs.velocityRPM = encoder.getVelocity() / GEAR_RATIO;
+    inputs.positionRot = encoder.getPosition();
+    inputs.velocityRPM2 = encoder.getVelocity();
     inputs.appliedVolts = leader.getAppliedOutput() * leader.getBusVoltage();
     inputs.currentAmps = leader.getOutputCurrent();
+    inputs.isBrake2 = leader.getIdleMode();
   }
 
   @Override
@@ -46,14 +46,18 @@ public class MaxVelocity2IOSparkMax implements MaxVelocity2IO {
   }
 
   @Override
-  public void setVelocity(double velocityRPM, double ffVolts) {
-    pid.setReference(
-        velocityRPM * GEAR_RATIO, ControlType.kVelocity, 0, ffVolts, ArbFFUnits.kVoltage);
+  public void setVelocity(double velocityRPM2, double ffVolts) {
+    pid.setReference(velocityRPM2, ControlType.kVelocity, 0, ffVolts, ArbFFUnits.kVoltage);
   }
 
   @Override
   public void stop() {
     leader.stopMotor();
+  }
+
+  @Override
+  public void brakeMode(IdleMode isBrake2) {
+    leader.setIdleMode(isBrake2);
   }
 
   @Override

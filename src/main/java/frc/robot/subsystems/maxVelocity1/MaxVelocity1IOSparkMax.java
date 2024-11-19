@@ -9,9 +9,7 @@ import com.revrobotics.SparkPIDController;
 import com.revrobotics.SparkPIDController.ArbFFUnits;
 
 public class MaxVelocity1IOSparkMax implements MaxVelocity1IO {
-  private static final double GEAR_RATIO = 4.0; // this is the gear reduction (driven/driving)
-
-  private final CANSparkMax leader = new CANSparkMax(1, MotorType.kBrushless);
+  private final CANSparkMax leader = new CANSparkMax(2, MotorType.kBrushless);
   private final RelativeEncoder encoder = leader.getEncoder();
   private final SparkPIDController pid = leader.getPIDController();
 
