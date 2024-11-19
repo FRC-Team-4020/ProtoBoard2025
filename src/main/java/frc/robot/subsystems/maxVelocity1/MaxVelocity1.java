@@ -16,7 +16,7 @@ import org.littletonrobotics.junction.networktables.LoggedDashboardNumber;
 public class MaxVelocity1 extends SubsystemBase {
   private final MaxVelocity1IO io;
   private final MaxVelocity1IOInputsAutoLogged inputs = new MaxVelocity1IOInputsAutoLogged();
-  private final SimpleMotorFeedforward ffModel;
+  private SimpleMotorFeedforward ffModel;
   private final DigitalInput maxVelocity1NoteSensor = new DigitalInput(9);
 
   public LoggedDashboardNumber maxVelocity1VelocityInput =
@@ -36,14 +36,14 @@ public class MaxVelocity1 extends SubsystemBase {
   public LoggedDashboardNumber velocityRPM =
       new LoggedDashboardNumber("Current MaxVelocity1 RPM", 0);
 
-  public LoggedDashboardNumber setKP = new LoggedDashboardNumber("Set kP", 0);
-  boolean kPNeedsUpdate = false;
+  public LoggedDashboardNumber setKP = new LoggedDashboardNumber("Set kP", 0.0001);
 
-  public LoggedDashboardNumber setKI = new LoggedDashboardNumber("Set kI", 0);
-  boolean kINeedsUpdate = false;
+  public LoggedDashboardNumber setKI = new LoggedDashboardNumber("Set kI", 0.0);
 
-  public LoggedDashboardNumber setKD = new LoggedDashboardNumber("Set kD", 0);
-  boolean kDNeedsUpdate = false;
+  public LoggedDashboardNumber setKD = new LoggedDashboardNumber("Set kD", 0.0);
+
+  public LoggedDashboardNumber setkS = new LoggedDashboardNumber("Set kS", 0.0);
+  public LoggedDashboardNumber setkV = new LoggedDashboardNumber("Set kV", 0.0043);
 
   /** Creates a new MaxVelocity1. */
   public MaxVelocity1(MaxVelocity1IO io) {
@@ -94,6 +94,8 @@ public class MaxVelocity1 extends SubsystemBase {
     velocityRPM.set(Math.round(getVelocityRPM()));
 
     io.configurePID(setKP.get(), setKI.get(), setKD.get());
+
+    ffModel = new SimpleMotorFeedforward(setkS.get(), setkV.get());
   }
 
   /** Run open loop at the specified voltage. */
