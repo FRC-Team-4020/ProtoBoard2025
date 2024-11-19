@@ -144,7 +144,7 @@ public final class Constants {
     private VisionConstants() {}
   }
 
-  public static class ArmConstants {
+  public static class MaxPosition1Constants {
     public static final double ARM_LENGTH_IN = 20.0;
     public static final double ARM_MASS_LBF = 10.0;
     public static final double ARM_GEAR_REDUCTION = 355.56;
@@ -168,7 +168,7 @@ public final class Constants {
     public static final double OUTRIGGER_RIGHT_UP = 0.05;
     public static final double OUTRIGGER_RIGHT_DOWN = 0.97;
 
-    private ArmConstants() {}
+    private MaxPosition1Constants() {}
   }
 
   public static class WinchConstants {
