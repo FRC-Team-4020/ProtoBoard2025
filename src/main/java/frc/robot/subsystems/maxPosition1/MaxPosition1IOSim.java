@@ -6,7 +6,7 @@ import edu.wpi.first.math.system.plant.DCMotor;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.simulation.SingleJointedArmSim;
-import frc.robot.Constants.MaxPosition1Constants;;
+import frc.robot.Constants.MaxPosition1Constants;
 
 public class MaxPosition1IOSim implements MaxPosition1IO {
 
@@ -31,7 +31,8 @@ public class MaxPosition1IOSim implements MaxPosition1IO {
             true,
             Units.degreesToRadians(MaxPosition1Constants.ARM_MIN_ANGLE_DEG));
 
-    MaxPosition1Sim.setState(VecBuilder.fill(Units.degreesToRadians(MaxPosition1Constants.ARM_MIN_ANGLE_DEG), 0.0));
+    maxPosition1Sim.setState(
+        VecBuilder.fill(Units.degreesToRadians(MaxPosition1Constants.ARM_MIN_ANGLE_DEG), 0.0));
   }
 
   @Override

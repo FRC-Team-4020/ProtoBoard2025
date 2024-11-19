@@ -1,8 +1,8 @@
-package frc.robot.subsystems.maxPosition11;
+package frc.robot.subsystems.maxPosition1;
 
 import edu.wpi.first.math.MathUtil;
-import edu.wpi.first.math.controller.MaxPosition1Feedforward;
 import edu.wpi.first.math.controller.ProfiledPIDController;
+import edu.wpi.first.math.controller.SimpleMotorFeedforward;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.smartdashboard.Mechanism2d;
@@ -24,12 +24,12 @@ public class MaxPosition1 extends SubsystemBase {
   public LoggedDashboardNumber elasticRotations =
       new LoggedDashboardNumber("MaxPosition1ElasticRotations", 300);
   private final MaxPosition1IO io;
-  private final Maxposition1IOInputsAutoLogged inputs = new MaxPosition1IOInputsAutoLogged();
-  private final MaxPosition1Feedforward ffModel;
+  private final MaxPosition1IOInputsAutoLogged inputs = new MaxPosition1IOInputsAutoLogged();
+  private final SimpleMotorFeedforward ffModel;
   private final ProfiledPIDController pid;
   private Double pidOutput;
   private Double feedforwardOutput;
-  private Double angleGoalRad = Units.degreesToRadians(MaxPosition1Constants.MaxPosition1_TARGET_DEG);
+  private Double angleGoalRad = Units.degreesToRadians(MaxPosition1Constants.ARM_TARGET_DEG);
   private String MaxPosition1Status = "#000000";
   public Boolean MaxPosition1ClosedLoop = false;
 
@@ -48,7 +48,7 @@ public class MaxPosition1 extends SubsystemBase {
               new Color8Bit(Color.kYellow)));
 
   /** Creates a new Arm. */
-  public MaxPosition11(MaxPosition11IO io) {
+  public MaxPosition1(MaxPosition1IO io) {
     this.io = io;
 
     // Put Mechanism 2d to SmartDashboard
@@ -59,23 +59,23 @@ public class MaxPosition1 extends SubsystemBase {
     // separate robot with different tuning)
     switch (Constants.currentMode) {
       case REAL:
-        ffModel = new MaxPosition1Feedforward(0.0, 0.16, 6.6, 0.01);
+        ffModel = new SimpleMotorFeedforward(0.0, 6.6, 0.01);
         pid = new ProfiledPIDController(60.0, 0.0, 1.0, new TrapezoidProfile.Constraints(1.8, 4.0));
         break;
       case REPLAY:
-        ffModel = new MaxPosition1Feedforward(0.0, 0.21, 6.93, 0.01);
+        ffModel = new SimpleMotorFeedforward(0.0, 6.93, 0.01);
         pid = new ProfiledPIDController(80.0, 0.0, 3.0, new TrapezoidProfile.Constraints(1.7, 8.0));
         break;
       case SIM:
-        ffModel = new MaxPosition1Feedforward(0.0, 0.21, 6.93, 0.01);
+        ffModel = new SimpleMotorFeedforward(0.0, 6.93, 0.01);
         pid = new ProfiledPIDController(80.0, 0.0, 3.0, new TrapezoidProfile.Constraints(1.7, 8.0));
         break;
       default:
-        ffModel = new MaxPosition1Feedforward(0.0, 0.0, 0.0, 0.0);
+        ffModel = new SimpleMotorFeedforward(0.0, 0.0, 0.0);
         pid = new ProfiledPIDController(0.0, 0.0, 0.0, new TrapezoidProfile.Constraints(0.0, 0.0));
         break;
     }
-    pid.setTolerance(Units.degreesToRadians(MaxPosition1Constants.MaxPosition1_ANGLE_TOLERANCE_DEG));
+    pid.setTolerance(Units.degreesToRadians(MaxPosition1Constants.ARM_ANGLE_TOLERANCE_DEG));
   }
 
   @Override
@@ -111,7 +111,8 @@ public class MaxPosition1 extends SubsystemBase {
     }
 
     Logger.recordOutput("MaxPosition1/angleInternalRad", inputs.internalPositionRad);
-    Logger.recordOutput("MaxPosition1/angleInternalDeg", Units.radiansToDegrees(inputs.internalPositionRad));
+    Logger.recordOutput(
+        "MaxPosition1/angleInternalDeg", Units.radiansToDegrees(inputs.internalPositionRad));
     Logger.recordOutput("MaxPosition1/motorVolts", inputs.appliedVolts);
     Logger.recordOutput("MaxPosition1/MaxPosition1IsUp", MaxPosition1IsUp());
     Logger.recordOutput("MaxPosition1/status", MaxPosition1Status);
@@ -126,7 +127,9 @@ public class MaxPosition1 extends SubsystemBase {
     angleGoalRad =
         Units.degreesToRadians(
             MathUtil.clamp(
-                setpointDeg, MaxPosition1Constants.MaxPosition1_MIN_ANGLE_DEG, MaxPosition1Constants.MaxPosition1_MAX_ANGLE_DEG));
+                setpointDeg,
+                MaxPosition1Constants.ARM_MIN_ANGLE_DEG,
+                MaxPosition1Constants.ARM_MAX_ANGLE_DEG));
   }
 
   /** Stops the Arm. */
@@ -145,12 +148,12 @@ public class MaxPosition1 extends SubsystemBase {
   // Typically used as a permissive in commands.
   public boolean MaxPosition1AtTarget() {
     return Units.radiansToDegrees(inputs.internalPositionRad)
-        <= MaxPosition1Constants.MaxPosition1_TARGET_DEG + MaxPosition1Constants.MaxPosition1_IS_DOWN_TOLERANCE_DEG;
+        <= MaxPosition1Constants.ARM_TARGET_DEG + MaxPosition1Constants.ARM_IS_DOWN_TOLERANCE_DEG;
   }
 
   public boolean MaxPosition1AtZero() {
     return Units.radiansToDegrees(inputs.internalPositionRad)
-        <= MaxPosition1Constants.MaxPosition1_IS_DOWN_TOLERANCE_DEG;
+        <= MaxPosition1Constants.ARM_IS_DOWN_TOLERANCE_DEG;
   }
 
   // Define "arm up" as an angle greater than 0 radians - currently no
@@ -172,7 +175,8 @@ public class MaxPosition1 extends SubsystemBase {
 
   // Move the arm to the stow/loading position.
   public Command MaxPosition1ToTargetCommand() {
-    return new RunCommand(() -> setGoalDeg(MaxPosition1Constants.MaxPosition1_TARGET_DEG)).until(() -> MaxPosition1AtTarget());
+    return new RunCommand(() -> setGoalDeg(MaxPosition1Constants.ARM_TARGET_DEG))
+        .until(() -> MaxPosition1AtTarget());
   }
 
   public Command MaxPosition1ToZeroCommand() {

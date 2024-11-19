@@ -1,10 +1,10 @@
-package frc.robot.subsystems.arm1;
+package frc.robot.subsystems.maxPosition1;
 
 import org.littletonrobotics.junction.AutoLog;
 
-public interface Arm1IO {
+public interface MaxPosition1IO {
   @AutoLog
-  public static class Arm1IOInputs {
+  public static class MaxPosition1IOInputs {
     public double internalPositionRad = 0.0;
     public double internalVelocityRadPerSec = 0.0;
     public double appliedVolts = 0.0;
@@ -13,7 +13,7 @@ public interface Arm1IO {
   }
 
   /** Updates the set of loggable inputs. */
-  public default void updateInputs(Arm1IOInputs inputs) {}
+  public default void updateInputs(MaxPosition1IOInputs inputs) {}
 
   /** Run the arm1 motor(s) at the specified voltages. */
   public default void setVoltage(double volts) {}
@@ -22,5 +22,5 @@ public interface Arm1IO {
   public default void stop() {}
 
   /** Enable or disable brake mode on the motors. */
-  public default void setBrakeMode(boolean arm1Brake) {}
+  public default void setBrakeMode(boolean maxPosition1Brake) {}
 }

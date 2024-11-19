@@ -6,7 +6,6 @@ import com.revrobotics.CANSparkLowLevel.MotorType;
 import com.revrobotics.RelativeEncoder;
 import edu.wpi.first.math.util.Units;
 import frc.robot.Constants.MaxPosition1Constants;
-import frc.robot.subsystems.maxPosition1.MaxPosition1;
 
 public class MaxPosition1IOSparkFlex implements MaxPosition1IO {
 
