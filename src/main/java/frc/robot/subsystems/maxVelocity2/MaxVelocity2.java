@@ -21,24 +21,24 @@ public class MaxVelocity2 extends SubsystemBase {
       new LoggedDashboardNumber("MaxVelocity2ElasticVolts", 0);
 
   public LoggedDashboardBoolean isvolts2 =
-      new LoggedDashboardBoolean("Run RPM             Run Volts", true);
+      new LoggedDashboardBoolean("Run RPM             Run Volts2", true);
 
-  public LoggedDashboardBoolean isBrake2 = new LoggedDashboardBoolean("Brake Mode", false);
+  public LoggedDashboardBoolean isBrake2 = new LoggedDashboardBoolean("Brake Mode2", false);
   boolean brakeNeedsUpdate = false;
 
-  public LoggedDashboardNumber appliedVoltage2 = new LoggedDashboardNumber("Applied Volts", 0);
+  public LoggedDashboardNumber appliedVoltage2 = new LoggedDashboardNumber("Applied Volts2", 0);
 
   public LoggedDashboardNumber velocityRPM2 =
       new LoggedDashboardNumber("Current MaxVelocity2 RPM", 0);
 
-  public LoggedDashboardNumber setKP2 = new LoggedDashboardNumber("Set kP", 0.0001);
+  public LoggedDashboardNumber setKP2 = new LoggedDashboardNumber("Set kP2", 0.0001);
 
-  public LoggedDashboardNumber setKI2 = new LoggedDashboardNumber("Set kI", 0.0);
+  public LoggedDashboardNumber setKI2 = new LoggedDashboardNumber("Set kI2", 0.0);
 
-  public LoggedDashboardNumber setKD2 = new LoggedDashboardNumber("Set kD", 0.0);
+  public LoggedDashboardNumber setKD2 = new LoggedDashboardNumber("Set kD2", 0.0);
 
-  public LoggedDashboardNumber setkS2 = new LoggedDashboardNumber("Set kS", 0.0);
-  public LoggedDashboardNumber setkV2 = new LoggedDashboardNumber("Set kV", 0.0043);
+  public LoggedDashboardNumber setkS2 = new LoggedDashboardNumber("Set kS2", 0.0);
+  public LoggedDashboardNumber setkV2 = new LoggedDashboardNumber("Set kV2", 0.0043);
 
   /** Creates a new MaxVelocity2. */
   public MaxVelocity2(MaxVelocity2IO io) {
