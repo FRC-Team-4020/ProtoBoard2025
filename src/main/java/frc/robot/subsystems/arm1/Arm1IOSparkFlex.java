@@ -18,7 +18,7 @@ public class Arm1IOSparkFlex implements Arm1IO {
   // This position is the ARM_MIN_ANGLE_DEG
   // Initialize the internal motor encoder to the shaft revolutions corresponding to this angle
   private final double intEncoderPositionStopsRev =
-      Arm1Constants.ARM_MIN_ANGLE_DEG / 360.0 * Arm1Constants.ARM_GEAR_REDUCTION;
+      Arm1Constants.ARM_POS_0 / 360.0 * Arm1Constants.ARM_GEAR_REDUCTION;
 
   public Arm1IOSparkFlex() {
     leader.restoreFactoryDefaults();

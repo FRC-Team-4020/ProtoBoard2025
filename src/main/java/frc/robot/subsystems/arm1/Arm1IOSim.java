@@ -26,12 +26,12 @@ public class Arm1IOSim implements Arm1IO {
                 Units.inchesToMeters(Arm1Constants.ARM_LENGTH_IN),
                 Units.lbsToKilograms(Arm1Constants.ARM_MASS_LBF)),
             Units.inchesToMeters(Arm1Constants.ARM_LENGTH_IN),
-            Units.degreesToRadians(Arm1Constants.ARM_MIN_ANGLE_DEG),
-            Units.degreesToRadians(Arm1Constants.ARM_MAX_ANGLE_DEG),
+            Units.degreesToRadians(Arm1Constants.ARM_POS_0),
+            Units.degreesToRadians(Arm1Constants.ARM_POS_1),
             true,
-            Units.degreesToRadians(Arm1Constants.ARM_MIN_ANGLE_DEG));
+            Units.degreesToRadians(Arm1Constants.ARM_POS_0));
 
-    arm1Sim.setState(VecBuilder.fill(Units.degreesToRadians(Arm1Constants.ARM_MIN_ANGLE_DEG), 0.0));
+    arm1Sim.setState(VecBuilder.fill(Units.degreesToRadians(Arm1Constants.ARM_POS_0), 0.0));
   }
 
   @Override
@@ -43,8 +43,7 @@ public class Arm1IOSim implements Arm1IO {
 
     // Reset position on enable
     if (DriverStation.isEnabled() && !lastEnabled) {
-      arm1Sim.setState(
-          VecBuilder.fill(Units.degreesToRadians(Arm1Constants.ARM_MIN_ANGLE_DEG), 0.0));
+      arm1Sim.setState(VecBuilder.fill(Units.degreesToRadians(Arm1Constants.ARM_POS_0), 0.0));
     }
     lastEnabled = DriverStation.isEnabled();
 

@@ -172,28 +172,19 @@ public final class Constants {
   }
 
   public static class Arm1Constants {
-    public static final double ARM_LENGTH_IN = 20.0;
+    public static final double ARM_LENGTH_IN = 20.0; // TODO: add arm lengths
     public static final double ARM_MASS_LBF = 10.0;
-    public static final double ARM_GEAR_REDUCTION = 355.56;
+    public static final double ARM_GEAR_REDUCTION = 355.56; // TODO: add gear reductions
     // Arm angle is defined to be 0 when the arm is parallel to the floor
-    public static final double ARM_MIN_ANGLE_DEG = -34.0;
-    public static final double ARM_MAX_ANGLE_DEG = 95.0;
-    public static final double ARM_TARGET_DEG = 90.0;
-    public static final double ARM_AMP_ANGLE_DEG = 83.0;
-    public static final double ARM_AMP_ANGLE2_DEG = 93.0;
+    public static final double ARM_POS_0 = 0;
+    public static final double ARM_POS_1 = -100.0;
+    public static final double ARM_TARGET_DEG = -100.0;
     // how close to the PID goal to be considered at goal?
     public static final double ARM_ANGLE_TOLERANCE_DEG = 0.2;
     // how close to the load angle to be considered down?
     public static final double ARM_IS_DOWN_TOLERANCE_DEG = 1.0;
     // External encoder reading in degrees when the arm is parallel to the floor
-    public static final double ARM_ENCODER_OFFSET_DEG = 187.0;
-
-    // climb stabilization outriggers mounted to the base of the arm
-    // extension amount is 0-1, where 0 is fully retracted
-    public static final double OUTRIGGER_LEFT_UP = 0.0;
-    public static final double OUTRIGGER_LEFT_DOWN = 1.0;
-    public static final double OUTRIGGER_RIGHT_UP = 0.05;
-    public static final double OUTRIGGER_RIGHT_DOWN = 0.97;
+    public static final double ARM_ENCODER_OFFSET_DEG = 187.0; // TODO: update encoder value
 
     private Arm1Constants() {}
   }

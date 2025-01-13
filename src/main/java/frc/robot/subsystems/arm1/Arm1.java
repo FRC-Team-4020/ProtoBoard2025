@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj.util.Color8Bit;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.Constants.Arm1Constants;
@@ -126,8 +127,7 @@ public class Arm1 extends SubsystemBase {
     Arm1ClosedLoop = true;
     angleGoalRad =
         Units.degreesToRadians(
-            MathUtil.clamp(
-                setpointDeg, Arm1Constants.ARM_MIN_ANGLE_DEG, Arm1Constants.ARM_MAX_ANGLE_DEG));
+            MathUtil.clamp(setpointDeg, Arm1Constants.ARM_POS_0, Arm1Constants.ARM_POS_1));
   }
 
   /** Stops the Arm. */
@@ -161,8 +161,8 @@ public class Arm1 extends SubsystemBase {
   }
 
   // If the arm is less than 75 degrees it is not in an amp position
-  public boolean Arm1IsNotAmped() {
-    return inputs.internalPositionRad < Units.degreesToRadians(75.0);
+  public boolean Arm1IsDown() {
+    return inputs.internalPositionRad < Units.degreesToRadians(-100.0);
   }
 
   // Has the arm reached the closed-loop goal?
@@ -179,5 +179,10 @@ public class Arm1 extends SubsystemBase {
 
   public Command Arm1ToZeroCommand() {
     return new RunCommand(() -> setGoalDeg(0.0)).until(() -> Arm1AtZero());
+  }
+
+  public Command Arm1ClimbCommand() {
+    return new SequentialCommandGroup(
+        new RunCommand(() -> Arm1ToTargetCommand()), new RunCommand(() -> Arm1ToZeroCommand()));
   }
 }

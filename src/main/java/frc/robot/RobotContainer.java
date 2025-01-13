@@ -5,8 +5,8 @@ import frc.robot.commands.SmartMaxVelocity1Command;
 import frc.robot.commands.SmartMaxVelocity2Command;
 import frc.robot.subsystems.arm1.Arm1;
 import frc.robot.subsystems.arm1.Arm1IOSparkFlex;
-import frc.robot.subsystems.maxPosition1.MaxPosition1;
-import frc.robot.subsystems.maxPosition1.MaxPosition1IOSparkFlex;
+// import frc.robot.subsystems.maxPosition1.MaxPosition1;
+// import frc.robot.subsystems.maxPosition1.MaxPosition1IOSparkFlex;
 import frc.robot.subsystems.maxVelocity1.MaxVelocity1;
 import frc.robot.subsystems.maxVelocity1.MaxVelocity1IOSparkMax;
 import frc.robot.subsystems.maxVelocity2.MaxVelocity2;
@@ -34,7 +34,7 @@ public class RobotContainer {
   // Subsystems
   private final MaxVelocity1 maxVelocity1;
   private final MaxVelocity2 maxVelocity2;
-  private final MaxPosition1 maxPosition1;
+  // private final MaxPosition1 maxPosition1;
   private final Arm1 arm1;
 
   // Controller
@@ -47,7 +47,7 @@ public class RobotContainer {
 
     maxVelocity1 = new MaxVelocity1(new MaxVelocity1IOSparkMax());
     maxVelocity2 = new MaxVelocity2(new MaxVelocity2IOSparkMax());
-    maxPosition1 = new MaxPosition1(new MaxPosition1IOSparkFlex());
+    // maxPosition1 = new MaxPosition1(new MaxPosition1IOSparkFlex());
     arm1 = new Arm1(new Arm1IOSparkFlex());
 
     configureButtonBindings();
@@ -61,7 +61,8 @@ public class RobotContainer {
     controller.leftBumper().toggleOnTrue(new SmartMaxVelocity1Command(maxVelocity1));
     controller.rightBumper().toggleOnTrue(new SmartMaxVelocity2Command(maxVelocity2));
     controller.x().toggleOnTrue(maxVelocity1.loadCommand());
-    controller.y().onTrue(maxPosition1.MaxPosition1ToTargetCommand());
-    controller.a().onTrue(maxPosition1.MaxPosition1ToZeroCommand());
+    // controller.y().onTrue(maxPosition1.MaxPosition1ToTargetCommand());
+    // controller.a().onTrue(maxPosition1.MaxPosition1ToZeroCommand());
+    controller.leftTrigger().onTrue(arm1.Arm1ClimbCommand());
   }
 }
