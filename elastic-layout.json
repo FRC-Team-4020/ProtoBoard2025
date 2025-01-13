@@ -1,1 +1,420 @@
-{"version":1.0,"grid_size":48,"tabs":[{"name":"MaxVelocity1","grid_layout":{"layouts":[],"containers":[{"title":"Volts","x":144.0,"y":0.0,"width":144.0,"height":96.0,"type":"Text Display","properties":{"topic":"/SmartDashboard/MaxVelocity1ElasticVolts","period":0.06,"data_type":"double","show_submit_button":true}},{"title":"RPM","x":0.0,"y":0.0,"width":144.0,"height":96.0,"type":"Text Display","properties":{"topic":"/SmartDashboard/MaxVelocity1 RPM","period":0.06,"data_type":"double","show_submit_button":true}},{"title":"Run RPM             Run Volts","x":0.0,"y":288.0,"width":288.0,"height":96.0,"type":"Toggle Switch","properties":{"topic":"/SmartDashboard/Run RPM             Run Volts","period":0.06,"data_type":"boolean"}},{"title":"Brake Mode","x":0.0,"y":192.0,"width":288.0,"height":96.0,"type":"Toggle Button","properties":{"topic":"/SmartDashboard/Brake Mode","period":0.06,"data_type":"boolean"}},{"title":"Applied Volts","x":288.0,"y":0.0,"width":288.0,"height":288.0,"type":"Graph","properties":{"topic":"/SmartDashboard/Applied Volts","period":0.033,"data_type":"double","time_displayed":5.0,"min_value":-15.0,"max_value":15.0,"color":4278238420,"line_width":2.0}},{"title":"Current RPM","x":0.0,"y":96.0,"width":144.0,"height":96.0,"type":"Text Display","properties":{"topic":"/SmartDashboard/Current MaxVelocity1 RPM","period":0.06,"data_type":"double","show_submit_button":false}},{"title":"Applied Volts","x":144.0,"y":96.0,"width":144.0,"height":96.0,"type":"Text Display","properties":{"topic":"/SmartDashboard/Applied Volts","period":0.06,"data_type":"double","show_submit_button":false}},{"title":"Current MaxVelocity1 RPM","x":576.0,"y":0.0,"width":288.0,"height":288.0,"type":"Graph","properties":{"topic":"/SmartDashboard/Current MaxVelocity1 RPM","period":0.033,"data_type":"double","time_displayed":5.0,"min_value":-6000.0,"max_value":6000.0,"color":4278238420,"line_width":2.0}},{"title":"kD","x":672.0,"y":288.0,"width":192.0,"height":96.0,"type":"Text Display","properties":{"topic":"/SmartDashboard/Set kD","period":0.06,"data_type":"double","show_submit_button":false}},{"title":"kI","x":480.0,"y":288.0,"width":192.0,"height":96.0,"type":"Text Display","properties":{"topic":"/SmartDashboard/Set kI","period":0.06,"data_type":"double","show_submit_button":false}},{"title":"kP","x":288.0,"y":288.0,"width":192.0,"height":96.0,"type":"Text Display","properties":{"topic":"/SmartDashboard/Set kP","period":0.06,"data_type":"double","show_submit_button":false}},{"title":"Set kS","x":0.0,"y":384.0,"width":144.0,"height":96.0,"type":"Text Display","properties":{"topic":"/SmartDashboard/Set kS","period":0.06,"data_type":"double","show_submit_button":false}},{"title":"Set kV","x":144.0,"y":384.0,"width":144.0,"height":96.0,"type":"Text Display","properties":{"topic":"/SmartDashboard/Set kV","period":0.06,"data_type":"double","show_submit_button":false}}]}},{"name":"MaxVelocity2","grid_layout":{"layouts":[],"containers":[{"title":"Applied Volts","x":144.0,"y":96.0,"width":144.0,"height":96.0,"type":"Text Display","properties":{"topic":"/SmartDashboard/Applied Volts2","period":0.06,"data_type":"double","show_submit_button":false}},{"title":"Brake Mode","x":0.0,"y":192.0,"width":288.0,"height":96.0,"type":"Toggle Button","properties":{"topic":"/SmartDashboard/Brake Mode2","period":0.06,"data_type":"boolean"}},{"title":"Current RPM","x":0.0,"y":96.0,"width":144.0,"height":96.0,"type":"Text Display","properties":{"topic":"/SmartDashboard/Current MaxVelocity2 RPM","period":0.06,"data_type":"double","show_submit_button":false}},{"title":"RPM","x":0.0,"y":0.0,"width":144.0,"height":96.0,"type":"Text Display","properties":{"topic":"/SmartDashboard/MaxVelocity2 RPM","period":0.06,"data_type":"double","show_submit_button":true}},{"title":"Volts","x":144.0,"y":0.0,"width":144.0,"height":96.0,"type":"Text Display","properties":{"topic":"/SmartDashboard/MaxVelocity2ElasticVolts","period":0.06,"data_type":"double","show_submit_button":true}},{"title":"Run RPM                 Run Volts","x":0.0,"y":288.0,"width":288.0,"height":96.0,"type":"Toggle Switch","properties":{"topic":"/SmartDashboard/Run RPM             Run Volts2","period":0.06,"data_type":"boolean"}},{"title":"Set kD","x":672.0,"y":288.0,"width":192.0,"height":96.0,"type":"Text Display","properties":{"topic":"/SmartDashboard/Set kD2","period":0.06,"data_type":"double","show_submit_button":true}},{"title":"Set kI","x":480.0,"y":288.0,"width":192.0,"height":96.0,"type":"Text Display","properties":{"topic":"/SmartDashboard/Set kI2","period":0.06,"data_type":"double","show_submit_button":true}},{"title":"Set kP","x":288.0,"y":288.0,"width":192.0,"height":96.0,"type":"Text Display","properties":{"topic":"/SmartDashboard/Set kP2","period":0.06,"data_type":"double","show_submit_button":true}},{"title":"Set kS","x":0.0,"y":384.0,"width":144.0,"height":96.0,"type":"Text Display","properties":{"topic":"/SmartDashboard/Set kS2","period":0.06,"data_type":"double","show_submit_button":true}},{"title":"Set kV","x":144.0,"y":384.0,"width":144.0,"height":96.0,"type":"Text Display","properties":{"topic":"/SmartDashboard/Set kV2","period":0.06,"data_type":"double","show_submit_button":true}},{"title":"Applied Volts","x":288.0,"y":0.0,"width":288.0,"height":288.0,"type":"Graph","properties":{"topic":"/SmartDashboard/Applied Volts2","period":0.033,"data_type":"double","time_displayed":5.0,"min_value":-15.0,"max_value":15.0,"color":4278238420,"line_width":2.0}},{"title":"Current RPM","x":576.0,"y":0.0,"width":288.0,"height":288.0,"type":"Graph","properties":{"topic":"/SmartDashboard/Current MaxVelocity2 RPM","period":0.033,"data_type":"double","time_displayed":5.0,"min_value":-6000.0,"max_value":6000.0,"color":4278238420,"line_width":2.0}}]}},{"name":"MaxPosition1","grid_layout":{"layouts":[],"containers":[{"title":"MaxPosition1ElasticRotations","x":528.0,"y":48.0,"width":144.0,"height":144.0,"type":"Text Display","properties":{"topic":"/SmartDashboard/MaxPosition1ElasticRotations","period":0.06,"data_type":"double","show_submit_button":true}}]}}]}
+{
+  "version": 1.0,
+  "grid_size": 48,
+  "tabs": [
+    {
+      "name": "MaxVelocity1",
+      "grid_layout": {
+        "layouts": [],
+        "containers": [
+          {
+            "title": "Volts",
+            "x": 144.0,
+            "y": 0.0,
+            "width": 144.0,
+            "height": 96.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/SmartDashboard/MaxVelocity1ElasticVolts",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": true
+            }
+          },
+          {
+            "title": "RPM",
+            "x": 0.0,
+            "y": 0.0,
+            "width": 144.0,
+            "height": 96.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/SmartDashboard/MaxVelocity1 RPM",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": true
+            }
+          },
+          {
+            "title": "Run RPM             Run Volts",
+            "x": 0.0,
+            "y": 288.0,
+            "width": 288.0,
+            "height": 96.0,
+            "type": "Toggle Switch",
+            "properties": {
+              "topic": "/SmartDashboard/Run RPM             Run Volts",
+              "period": 0.06,
+              "data_type": "boolean"
+            }
+          },
+          {
+            "title": "Brake Mode",
+            "x": 0.0,
+            "y": 192.0,
+            "width": 288.0,
+            "height": 96.0,
+            "type": "Toggle Button",
+            "properties": {
+              "topic": "/SmartDashboard/Brake Mode",
+              "period": 0.06,
+              "data_type": "boolean"
+            }
+          },
+          {
+            "title": "Applied Volts",
+            "x": 288.0,
+            "y": 0.0,
+            "width": 288.0,
+            "height": 288.0,
+            "type": "Graph",
+            "properties": {
+              "topic": "/SmartDashboard/Applied Volts",
+              "period": 0.033,
+              "data_type": "double",
+              "time_displayed": 5.0,
+              "min_value": -15.0,
+              "max_value": 15.0,
+              "color": 4278238420,
+              "line_width": 2.0
+            }
+          },
+          {
+            "title": "Current RPM",
+            "x": 0.0,
+            "y": 96.0,
+            "width": 144.0,
+            "height": 96.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/SmartDashboard/Current MaxVelocity1 RPM",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": false
+            }
+          },
+          {
+            "title": "Applied Volts",
+            "x": 144.0,
+            "y": 96.0,
+            "width": 144.0,
+            "height": 96.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/SmartDashboard/Applied Volts",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": false
+            }
+          },
+          {
+            "title": "Current MaxVelocity1 RPM",
+            "x": 576.0,
+            "y": 0.0,
+            "width": 288.0,
+            "height": 288.0,
+            "type": "Graph",
+            "properties": {
+              "topic": "/SmartDashboard/Current MaxVelocity1 RPM",
+              "period": 0.033,
+              "data_type": "double",
+              "time_displayed": 5.0,
+              "min_value": -6000.0,
+              "max_value": 6000.0,
+              "color": 4278238420,
+              "line_width": 2.0
+            }
+          },
+          {
+            "title": "kD",
+            "x": 672.0,
+            "y": 288.0,
+            "width": 192.0,
+            "height": 96.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/SmartDashboard/Set kD",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": false
+            }
+          },
+          {
+            "title": "kI",
+            "x": 480.0,
+            "y": 288.0,
+            "width": 192.0,
+            "height": 96.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/SmartDashboard/Set kI",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": false
+            }
+          },
+          {
+            "title": "kP",
+            "x": 288.0,
+            "y": 288.0,
+            "width": 192.0,
+            "height": 96.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/SmartDashboard/Set kP",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": false
+            }
+          },
+          {
+            "title": "Set kS",
+            "x": 0.0,
+            "y": 384.0,
+            "width": 144.0,
+            "height": 96.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/SmartDashboard/Set kS",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": false
+            }
+          },
+          {
+            "title": "Set kV",
+            "x": 144.0,
+            "y": 384.0,
+            "width": 144.0,
+            "height": 96.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/SmartDashboard/Set kV",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "MaxVelocity2",
+      "grid_layout": {
+        "layouts": [],
+        "containers": [
+          {
+            "title": "Applied Volts",
+            "x": 144.0,
+            "y": 96.0,
+            "width": 144.0,
+            "height": 96.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/SmartDashboard/Applied Volts2",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": false
+            }
+          },
+          {
+            "title": "Brake Mode",
+            "x": 0.0,
+            "y": 192.0,
+            "width": 288.0,
+            "height": 96.0,
+            "type": "Toggle Button",
+            "properties": {
+              "topic": "/SmartDashboard/Brake Mode2",
+              "period": 0.06,
+              "data_type": "boolean"
+            }
+          },
+          {
+            "title": "Current RPM",
+            "x": 0.0,
+            "y": 96.0,
+            "width": 144.0,
+            "height": 96.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/SmartDashboard/Current MaxVelocity2 RPM",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": false
+            }
+          },
+          {
+            "title": "RPM",
+            "x": 0.0,
+            "y": 0.0,
+            "width": 144.0,
+            "height": 96.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/SmartDashboard/MaxVelocity2 RPM",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": true
+            }
+          },
+          {
+            "title": "Volts",
+            "x": 144.0,
+            "y": 0.0,
+            "width": 144.0,
+            "height": 96.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/SmartDashboard/MaxVelocity2ElasticVolts",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": true
+            }
+          },
+          {
+            "title": "Run RPM                 Run Volts",
+            "x": 0.0,
+            "y": 288.0,
+            "width": 288.0,
+            "height": 96.0,
+            "type": "Toggle Switch",
+            "properties": {
+              "topic": "/SmartDashboard/Run RPM             Run Volts2",
+              "period": 0.06,
+              "data_type": "boolean"
+            }
+          },
+          {
+            "title": "Set kD",
+            "x": 672.0,
+            "y": 288.0,
+            "width": 192.0,
+            "height": 96.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/SmartDashboard/Set kD2",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": true
+            }
+          },
+          {
+            "title": "Set kI",
+            "x": 480.0,
+            "y": 288.0,
+            "width": 192.0,
+            "height": 96.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/SmartDashboard/Set kI2",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": true
+            }
+          },
+          {
+            "title": "Set kP",
+            "x": 288.0,
+            "y": 288.0,
+            "width": 192.0,
+            "height": 96.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/SmartDashboard/Set kP2",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": true
+            }
+          },
+          {
+            "title": "Set kS",
+            "x": 0.0,
+            "y": 384.0,
+            "width": 144.0,
+            "height": 96.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/SmartDashboard/Set kS2",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": true
+            }
+          },
+          {
+            "title": "Set kV",
+            "x": 144.0,
+            "y": 384.0,
+            "width": 144.0,
+            "height": 96.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/SmartDashboard/Set kV2",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": true
+            }
+          },
+          {
+            "title": "Applied Volts",
+            "x": 288.0,
+            "y": 0.0,
+            "width": 288.0,
+            "height": 288.0,
+            "type": "Graph",
+            "properties": {
+              "topic": "/SmartDashboard/Applied Volts2",
+              "period": 0.033,
+              "data_type": "double",
+              "time_displayed": 5.0,
+              "min_value": -15.0,
+              "max_value": 15.0,
+              "color": 4278238420,
+              "line_width": 2.0
+            }
+          },
+          {
+            "title": "Current RPM",
+            "x": 576.0,
+            "y": 0.0,
+            "width": 288.0,
+            "height": 288.0,
+            "type": "Graph",
+            "properties": {
+              "topic": "/SmartDashboard/Current MaxVelocity2 RPM",
+              "period": 0.033,
+              "data_type": "double",
+              "time_displayed": 5.0,
+              "min_value": -6000.0,
+              "max_value": 6000.0,
+              "color": 4278238420,
+              "line_width": 2.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "MaxPosition1",
+      "grid_layout": {
+        "layouts": [],
+        "containers": [
+          {
+            "title": "MaxPosition1ElasticRotations",
+            "x": 528.0,
+            "y": 48.0,
+            "width": 144.0,
+            "height": 144.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/SmartDashboard/MaxPosition1ElasticRotations",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": true
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -3,6 +3,8 @@ package frc.robot;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.commands.SmartMaxVelocity1Command;
 import frc.robot.commands.SmartMaxVelocity2Command;
+import frc.robot.subsystems.arm1.Arm1;
+import frc.robot.subsystems.arm1.Arm1IOSparkFlex;
 import frc.robot.subsystems.maxPosition1.MaxPosition1;
 import frc.robot.subsystems.maxPosition1.MaxPosition1IOSparkFlex;
 import frc.robot.subsystems.maxVelocity1.MaxVelocity1;
@@ -33,6 +35,7 @@ public class RobotContainer {
   private final MaxVelocity1 maxVelocity1;
   private final MaxVelocity2 maxVelocity2;
   private final MaxPosition1 maxPosition1;
+  private final Arm1 arm1;
 
   // Controller
   private final CommandXboxController controller = new CommandXboxController(0);
@@ -45,6 +48,7 @@ public class RobotContainer {
     maxVelocity1 = new MaxVelocity1(new MaxVelocity1IOSparkMax());
     maxVelocity2 = new MaxVelocity2(new MaxVelocity2IOSparkMax());
     maxPosition1 = new MaxPosition1(new MaxPosition1IOSparkFlex());
+    arm1 = new Arm1(new Arm1IOSparkFlex());
 
     configureButtonBindings();
   }
