@@ -63,6 +63,6 @@ public class RobotContainer {
     controller.x().toggleOnTrue(maxVelocity1.loadCommand());
     // controller.y().onTrue(maxPosition1.MaxPosition1ToTargetCommand());
     // controller.a().onTrue(maxPosition1.MaxPosition1ToZeroCommand());
-    controller.leftTrigger().onTrue(arm1.Arm1ClimbCommand());
+    controller.rightTrigger().onTrue(arm1.Arm1ClimbCommand());
   }
 }
