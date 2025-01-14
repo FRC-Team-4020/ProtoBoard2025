@@ -9,7 +9,7 @@ import com.revrobotics.SparkPIDController;
 import com.revrobotics.SparkPIDController.ArbFFUnits;
 
 public class MaxVelocity2IOSparkMax implements MaxVelocity2IO {
-  private final CANSparkMax leader = new CANSparkMax(1, MotorType.kBrushless);
+  private final CANSparkMax leader = new CANSparkMax(2, MotorType.kBrushless);
   private final RelativeEncoder encoder = leader.getEncoder();
   private final SparkPIDController pid = leader.getPIDController();
 
