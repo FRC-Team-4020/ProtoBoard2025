@@ -183,7 +183,8 @@ public class Arm1 extends SubsystemBase {
 
   public Command Arm1ClimbCommand() {
     return new SequentialCommandGroup(
-        Arm1ToTargetCommand()), 
-        Arm1ToZeroCommand());
+        Arm1ToTargetCommand(), 
+        Arm1ToZeroCommand()
+    );
   }
 }
