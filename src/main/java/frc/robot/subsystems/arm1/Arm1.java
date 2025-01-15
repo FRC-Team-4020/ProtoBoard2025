@@ -61,7 +61,7 @@ public class Arm1 extends SubsystemBase {
     switch (Constants.currentMode) {
       case REAL:
         ffModel = new SimpleMotorFeedforward(0.0, 6.6, 0.01);
-        pid = new ProfiledPIDController(60.0, 0.0, 1.0, new TrapezoidProfile.Constraints(1.8, 4.0));
+        pid = new ProfiledPIDController(20.0, 0.0, 0.0, new TrapezoidProfile.Constraints(1.8, 4.0));
         break;
       case REPLAY:
         ffModel = new SimpleMotorFeedforward(0.0, 6.93, 0.01);
@@ -69,7 +69,7 @@ public class Arm1 extends SubsystemBase {
         break;
       case SIM:
         ffModel = new SimpleMotorFeedforward(0.0, 6.93, 0.01);
-        pid = new ProfiledPIDController(80.0, 0.0, 3.0, new TrapezoidProfile.Constraints(1.7, 8.0));
+        pid = new ProfiledPIDController(1.0, 0.0, 3.0, new TrapezoidProfile.Constraints(1.7, 8.0));
         break;
       default:
         ffModel = new SimpleMotorFeedforward(0.0, 0.0, 0.0);
@@ -142,13 +142,11 @@ public class Arm1 extends SubsystemBase {
   // Check if arm is within a tolerance of the down/load position.
   // Typically used as a permissive in commands.
   public boolean Arm1AtTarget() {
-    return Units.radiansToDegrees(inputs.internalPositionRad)
-        <= Arm1Constants.ARM_TARGET_DEG + Arm1Constants.ARM_IS_DOWN_TOLERANCE_DEG;
+    return Units.radiansToDegrees(inputs.internalPositionRad) >= 99.0;
   }
 
   public boolean Arm1AtZero() {
-    return Units.radiansToDegrees(inputs.internalPositionRad)
-        <= Arm1Constants.ARM_IS_DOWN_TOLERANCE_DEG;
+    return Units.radiansToDegrees(inputs.internalPositionRad) <= 1;
   }
 
   // Define "arm up" as an angle greater than 0 radians - currently no
