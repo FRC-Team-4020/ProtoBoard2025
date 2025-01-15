@@ -84,9 +84,6 @@ public class Arm1 extends SubsystemBase {
     io.updateInputs(inputs);
     Logger.processInputs("Arm1", inputs);
 
-    double rotations = elasticRotations.get();
-    setGoalDeg(rotations);
-
     if (Arm1ClosedLoop) {
       pidOutput = pid.calculate(inputs.internalPositionRad, angleGoalRad);
       feedforwardOutput = ffModel.calculate(pid.getSetpoint().position, pid.getSetpoint().velocity);
@@ -125,7 +122,7 @@ public class Arm1 extends SubsystemBase {
   /** Set the goal for the arm angle. Put controller in auto if not already. */
   public void setGoalDeg(double setpointDeg) {
     Arm1ClosedLoop = true;
-    angleGoalRad =
+    angleGoalRad = 
         Units.degreesToRadians(
             MathUtil.clamp(setpointDeg, Arm1Constants.ARM_POS_0, Arm1Constants.ARM_POS_1));
   }
@@ -173,8 +170,7 @@ public class Arm1 extends SubsystemBase {
 
   // Move the arm to the stow/loading position.
   public Command Arm1ToTargetCommand() {
-    return new RunCommand(() -> setGoalDeg(Arm1Constants.ARM_TARGET_DEG))
-        .until(() -> Arm1AtTarget());
+    return new RunCommand(() -> setGoalDeg(Arm1Constants.ARM_POS_1)).until(() -> Arm1AtTarget());
   }
 
   public Command Arm1ToZeroCommand() {
@@ -182,9 +178,6 @@ public class Arm1 extends SubsystemBase {
   }
 
   public Command Arm1ClimbCommand() {
-    return new SequentialCommandGroup(
-        Arm1ToTargetCommand(), 
-        Arm1ToZeroCommand()
-    );
+    return new SequentialCommandGroup(Arm1ToTargetCommand(), Arm1ToZeroCommand());
   }
 }

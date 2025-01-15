@@ -174,7 +174,7 @@ public final class Constants {
   public static class Arm1Constants {
     public static final double ARM_LENGTH_IN = 20.0; // TODO: add arm lengths
     public static final double ARM_MASS_LBF = 10.0;
-    public static final double ARM_GEAR_REDUCTION = 355.56; // TODO: add gear reductions
+    public static final double ARM_GEAR_REDUCTION = 350.0;
     // Arm angle is defined to be 0 when the arm is parallel to the floor
     public static final double ARM_POS_0 = 0;
     public static final double ARM_POS_1 = -100.0;
